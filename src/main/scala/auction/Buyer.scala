@@ -27,11 +27,6 @@ case class Buyer(name: String, bids: List[Bid] = List()) {
    * @param item
    */
   def hasBidOnItem(item: AuctionItem): Boolean = {
-    val bidsOnItem = this.bids.filter(bid => bid.item == item)
-    if (bidsOnItem.isEmpty){
-      false
-    } else {
-      true
-    }
+    this.bids.exists(bid => bid.item == item)
   }
 }
